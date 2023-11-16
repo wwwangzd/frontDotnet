@@ -10,9 +10,9 @@ const router = createRouter({
             component: () => import("@v/Home.vue"),
         },
         {
-            path: "/",
-            name: "login",
-            component: () => import("@v/Login.vue"),
+            path: "/vue",
+            name: "vue",
+            component: () => import("@v/Exp5-1/Vue.vue"),
         },
     ], // `routes: routes` 的缩写
 });

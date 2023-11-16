@@ -10,6 +10,7 @@
     "dependencies": {
         "ant-design-vue": "^4.0.6",
         "axios": "^0.27.1",
+        "highlight.js": "^11.9.0",
         "iscroll": "^5.2.0",
         "vue": "^3.3.4",
         "vue-cropper": "^1.0.5",

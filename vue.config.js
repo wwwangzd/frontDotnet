@@ -26,7 +26,7 @@ const assetsCDN = {
 
 // 文档说明 https://webpack.js.org/configuration/dev-server/#staticoptions
 const vueConfig = {
-    publicPath: process.env.NODE_ENV === "production" ? "/manage/" : "/",
+    publicPath: process.env.NODE_ENV === "production" ? "/" : "/",
     configureWebpack: {
         // webpack plugins
         plugins: [
