@@ -1,0 +1,108 @@
+/* 主控 */
+.Pop-View {
+    /* Safari */
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* 这里要调成像素 */
+    height: 100%;
+    width: 100%;
+    z-index: 5;
+    background-color: rgba(55, 55, 55, 0.6);
+}
+
+/* 增加用户 */
+.message-control {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    background-color: #ecf0f3;
+    height: 400px;
+    width: 700px;
+}
+
+.message {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    height: 90%;
+    width: 90%;
+}
+
+.message-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 50%;
+    height: 100%;
+}
+
+.message-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 50%;
+    height: 100%;
+}
+
+.avatar-uploader,
+.el-upload {
+    background-color: white;
+    border: 1.0px dashed #d9d9d9;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    height: 150px;
+    width: 150px;
+}
+
+.avatar-uploader:hover,
+.el-upload:hover {
+    border-color: #0d6efd;
+}
+
+.avatar-uploader-icon {
+    font-size: 30px;
+    color: #8c939d;
+    width: 150px;
+    height: 150px;
+    line-height: 150px;
+    text-align: center;
+}
+
+.avatar {
+    width: 150px;
+    height: 150px;
+    display: block;
+}
+
+.message-gender {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 250px;
+}
+
+.message-name,
+.message-phone,
+.message-mail,
+.message-address {
+
+    width: 250px;
+}
+
+.message-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.messagefault {
+    color: #dc3545;
+    font-weight: 600;
+}

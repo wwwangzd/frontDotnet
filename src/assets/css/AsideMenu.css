@@ -1,0 +1,119 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 主控 */
+.side-bar {
+    position: absolute;
+    width: 260px;
+    height: 100vh;
+    background-color: #181718;
+    padding: 12px;
+    overflow: hidden;
+    transition: 0.4s;
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+}
+
+.side-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 头部 */
+.user {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: white;
+    height: 130px;
+}
+
+.side-bar .side-container img {
+    width: 60px;
+    border-radius: 8px;
+}
+
+.side-bar .side-container p {
+    white-space: nowrap;
+}
+
+/* 列表 */
+.side-bar .side-container ul {
+    display: flex;
+    flex-direction: column;
+}
+
+.side-bar .side-container ul li a {
+    display: flex;
+    color: white;
+    background-color: transparent;
+    cursor: pointer;
+    border-radius: 6px;
+    text-align: center;
+    line-height: 60px;
+    gap: 12px;
+
+    height: 60px;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-decoration: none;
+    color: white;
+    justify-content: center;
+}
+
+.side-bar .side-container ul li a i {
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    flex-shrink: 0;
+    font-size: 26px;
+    /* font-weight: bold; */
+}
+
+.only-size {
+    font-size: 30px !important;
+}
+
+.text {
+    font-size: 20px;
+}
+
+/* 动画 */
+.side-bar .side-container ul li a.show {
+    background-color: #333;
+    color: #0effff;
+}
+
+.side-bar .side-container ul li a:hover {
+    background-color: #333;
+    color: #0effff;
+}
+
+.side-bar.active {
+    width: 84px;
+    overflow-x: hidden;
+}
+
+.side-bar .side-container .user>div {
+    transition: 1.5s;
+}
+
+.side-bar .side-container ul li a>span {
+    transition: 1s;
+}
+
+.side-bar.active .user>div {
+    transition: 0s;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.side-bar.active ul li a>span {
+    transition: 0s;
+    opacity: 0;
+    pointer-events: none;
+}
