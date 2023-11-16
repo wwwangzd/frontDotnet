@@ -1,0 +1,267 @@
+body {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(119 157 193);
+}
+
+/* 外部图片与动画 */
+.mainimg{
+    margin: auto;
+    position: relative;
+    top: 100px;
+    width: 1000px;
+    height: 600px;
+    background-image: url("../imgs/sky.jpg");
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.pieces1,
+.pieces2,
+.pieces3,
+.pieces4{
+    position: absolute;
+    width: 1000px;
+    height: 600px;
+    /* 设置阴影 */
+    filter: drop-shadow(4px 4px 12px rgba(0,0,0,.5));
+    background-size: cover;
+    opacity: .7;
+    transition: 1.5s;
+    z-index: 3;
+}
+.pieces1::after,
+.pieces2::after,
+.pieces3::after,
+.pieces4::after{
+    content: "";
+    position: absolute;
+    width: 1000px;
+    height: 600px;
+    background-image: url("../imgs/sky.jpg");
+}
+.pieces1{
+    left: -400px;
+    transform: rotateZ(100deg);
+    overflow: hidden;
+}
+.pieces1::after{
+    transform: rotateZ(-100deg);
+}
+
+.pieces2{
+    left: -400px;
+    transform: rotateZ(-100deg);
+    overflow: hidden;
+}
+.pieces2::after{
+    transform: rotateZ(100deg);
+}
+
+.pieces3{
+    right: -400px;
+    transform: rotateZ(105deg);
+    overflow: hidden;
+}
+.pieces3::after{
+    transform: rotateZ(-105deg);
+}
+
+.pieces4{
+    right: -400px;
+    transform: rotateZ(-100deg);
+    overflow: hidden;
+}
+.pieces4::after{
+    transform: rotateZ(100deg);
+}
+
+/* 设置动画 */
+.mainimg:hover .pieces1{
+    left: -550px;
+}
+.mainimg:hover .pieces2{
+    left: -600px;
+}
+.mainimg:hover .pieces3{
+    right: -550px;
+}
+.mainimg:hover .pieces4{
+    right: -610px;
+}
+.mainimg:hover .txt{
+    opacity: 1;
+    overflow: hidden;
+}
+
+/* 内部表单 */
+.box{
+    position: relative;
+}
+
+.box .square{
+    position: absolute;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 25px 45px rgba(0,0,0,0.1);
+    border: 1px solid rgba(255,255,255,0.5);
+    border-right: 1px solid rgba(255,255,255,0.2);
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    background-color: rgba((255), 255, 255, 0.1);
+    border-radius: 10px;
+    animation: animate 15s linear infinite;
+    animation-delay: calc(-1s * var(--i));
+}
+
+@keyframes animate{
+    0%,100%
+    {
+        transform: translateY(-40px);
+    }
+    50%
+    {
+        transform: translateY(40px);
+    }
+}
+
+.box .square:nth-child(1){
+    top:-40px;
+    right: -45px;
+    width: 75px;
+    height: 75px;
+}
+
+.box .square:nth-child(2){
+    top:120px;
+    left: -60px;
+    width: 80px;
+    height: 80px;
+    z-index: 2;
+}
+
+.box .square:nth-child(3){
+    bottom:40px;
+    right: -45px;
+    width: 60px;
+    height: 60px;
+    z-index: 2;
+}
+
+.box .square:nth-child(4){
+    bottom:-60px;
+    left: 75px;
+    width: 37px;
+    height: 37px;
+}
+
+.box .square:nth-child(5){
+    top:-60px;
+    left: 110px;
+    width: 37px;
+    height: 37px;
+}
+
+.container{
+    position: relative;
+    width: 320px;
+    min-height: 300px;
+}
+
+.doubleFaced{
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    padding: 40px;
+    padding-top: 25px;
+    padding-bottom: 55px;
+
+    background-color: rgba((255), 255, 255, 0.1);
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 25px 45px rgba(0,0,0,0.1);
+    border: 1px solid rgba(255,255,255,0.5);
+    border-right: 1px solid rgba(255,255,255,0.2);
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    backface-visibility: hidden;
+    transition: all 1s;
+}
+
+.txt{
+    opacity: 0;
+    font: 800 40px '';
+    /* 设置字体间距 */
+    letter-spacing: 10px;
+    color: rgb(60,60,70);
+    transition: 1.5s;
+    cursor: pointer;
+    background: none;
+    height: 240px;
+    line-height: 240px;
+}
+
+.smalltxt{
+    height: 10px;
+    line-height: 10px;
+}
+
+.loginform{
+    transform: rotateY(-180deg);      /* 原来不用引号 */
+}
+
+.loginform h2{
+    position: relative;
+    /* margin: auto; */
+    color: #fff;
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 40px;
+}
+
+.loginform h2:before{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    width: 80px;
+    height: 4px;
+    background: #fff;
+}
+
+.loginform .inputbox{
+    width: 200px;
+    margin-top: 20px;
+}
+
+.loginform .inputbox input{
+    width: 100%;
+    background: rgba(255,255,255,0.2);
+    border: none;
+    outline: none;
+    padding: 10px 20px;
+    border-radius: 35px;
+    border: 1px solid rgba(255,255,255,0.5);
+    border-right: 1px solid rgba(255,255,255,0.2);
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    font-size: 16px;
+    letter-spacing: 1px;
+    color: #fff;
+    box-shadow: 0 5px 15px rgba(0,0,0,.05);
+}
+
+.loginform .inputbox input::placeholder{
+    color: #fff;
+}
+
+.loginform .inputbox input[type="submit"]
+{
+    background: #fff;
+    color: #666;
+    max-width: 100px;
+    cursor: pointer;
+    font-weight: 600;
+    /* margin-left: 5px; */
+}
