@@ -85,14 +85,13 @@ export default {
       console.log("change " + index);
       console.log(this.changeform.name);
       this.modal2Visible = true;
-      this.nowAlterIndex = index;
+      this.nowAlterIndex = index;   //给索引赋值
 
       this.changeform.avatar = user.avatar;
       this.changeform.name = user.name;
       this.changeform.role = user.role;
       this.changeform.pwd = user.pwd;
       this.changeform.sid = user.sid;
-      this.mesg = "我不好";
 
       console.log(this.changeform.name);
     },
@@ -100,7 +99,7 @@ export default {
     AlterUser() {
       this.modal2Visible = false;
 
-      //这里要传过去一个接口
+      //替换成修改用户信息的接口，nowAlterIndex是要修改的索引
       this.users[this.nowAlterIndex].avatar = this.changeform.avatar;
       this.users[this.nowAlterIndex].name = this.changeform.name;
       this.users[this.nowAlterIndex].role = this.changeform.role;
@@ -114,7 +113,7 @@ export default {
     AddUser() {
       this.modal1Visible = false;
 
-      //接口添加
+      //替换成添加用户的接口，用户信息的属性还不确定是哪些
       this.users.push(this.newuser);
 
       message.success("添加用户成功！", 4);
@@ -130,7 +129,7 @@ export default {
         closable: true, //是否显示右上角的x
         onOk: function () {
           console.log("on确定");
-          //调用接口去删除
+          //调用删除用户的接口
         },
         onCancel() {
           console.log("on取消");
