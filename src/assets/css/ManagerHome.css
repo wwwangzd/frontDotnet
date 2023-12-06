@@ -1,0 +1,295 @@
+
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.body {
+  justify-content: center;
+  align-items: center;
+  margin-left: 100px;
+  margin-right: 100px;
+  margin-top: 100px;
+  border: 1px solid #d1d1d2;
+}
+
+.searchbox{
+    display: flex;
+    margin-top: 50px;
+}
+
+.search-icon {
+  position: relative;
+  width: 700px;
+  height: 40px;
+  flex: 1;
+  margin-left: 100px;
+}
+
+.addbtn{
+    height: 70px;
+    align-items: center;
+    margin-left: 50px;
+}
+
+.margins{
+    margin-bottom: 10px;
+    height: 20px;
+}
+
+.btn1{
+    float: left;
+    width: 100px;
+    height: 40px;
+}
+
+.searchbtn{
+    height: 70px;
+    align-items: center;
+    margin-right: 200px;
+}
+
+.btn2{
+    float: left;
+    width: 100px;
+    height: 40px;
+}
+
+.search-icon input {
+  width: 700px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: #ffffff;
+  outline: none;
+  font-size: 16px;
+  border: none;
+  padding-left: 20px;
+  caret-color: white;
+  border: 1px solid #1282eb;
+}
+.search-icon input:focus {
+  cursor: auto;
+  border: 1px solid #1282eb;;
+}
+.circle {
+  position: relative;
+  display: block;
+  height: 20px;
+  width: 20px;
+  background-color: #fdfdfd;
+  border-radius: 70px;
+  z-index: 0;
+  border: 5px solid #9d97c5;
+  transition: all 0.6s;
+  z-index: 1;
+  left: 25px;
+  top: -70px;
+}
+.handle {
+  position: absolute;
+  background-color: #9d97c5;
+  color: #9d97c5;
+  top: 35px;
+  left: 45px;
+  width: 40px;
+  height: 8px;
+  display: block;
+  transform: rotate(45deg);
+  cursor: pointer;
+  float: right;
+  border-radius: 1px;
+}
+.handle:after {
+  content: "";
+  background-color: #9d97c5;
+  color: #9d97c5;
+  width: 40px;
+  height: 8px;
+  display: block;
+  float: right;
+  border-radius: 1px;
+  transition: all 0.6s;
+  z-index: -1;
+}
+.open .circle {
+  transform: scale(0.02);
+  transform-origin: 40% 40%;
+  background: white;
+  border-color: white;
+}
+.open .handle:after {
+  transform-origin: center center;
+  transform: rotate(90deg);
+}
+
+.content-select button {
+    margin-right: 30px;
+}
+
+/* 标签 */
+.content-label {
+    background-color: #d4d5d6;
+    display: flex;
+    /* 高度 */
+    height: 60px;
+}
+
+/* 信息 */
+.content-main {
+    /* 100%-9%-9%-8%-10% */
+    height: 64%;
+    width: 100%;
+}
+
+.delcard{
+    /* height: 100px; */
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.control-allselect{
+    flex:1;
+    margin-left: 50px;
+}
+
+.txt1{
+    font-family: '微软雅黑','楷体';
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.form-check-label{
+    zoom: 200%;
+    font-size: 8px;
+}
+
+.delbtn{
+    flex: 1;
+    float: right;
+    margin-right: 200px;
+    /* width: 100px; */
+}
+
+.main {
+    display: flex;
+    height: 60px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-son {
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+.main:hover {
+    background-color: #ecf0f3;
+}
+
+.main-active {
+    background-color: #ecf0f3;
+}
+
+.control-select {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 10%;
+}
+
+.control-select input {
+    height: 18px;
+    width: 18px;
+    cursor: pointer;
+    margin-top: 0%;
+}
+
+.control-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 15%;
+}
+
+.main-image {
+    height: 70px;
+    width: 70px;
+}
+
+.btn{
+    width: 50px;
+}
+
+.control-name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 20%;
+}
+
+.control-role {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 20%;
+}
+
+.control-sid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 30%;
+}
+
+.control-email {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 20%;
+}
+
+.main-text {
+    margin: 0%;
+    font-size: 16px;
+}
+
+.border-bottom{
+    border-bottom: 1px solid #e7e8e9;
+}
+
+.control-btn {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+    width: 25%;
+}
+
+/* 分页栏 */
+.content-page {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 10%;
+    width: 100%;
+}
+
+.pager-view {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.page-btn {
+    height: 35px;
+    width: 100px;
+}
