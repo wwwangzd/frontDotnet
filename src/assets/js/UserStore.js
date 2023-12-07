@@ -1,5 +1,5 @@
-import AsideMenu from "../../components/AsideMenu.vue";
-import PopView from "../../components/PopView.vue";
+import AsideMenu from "../../components/abandon/AsideMenu.vue";
+import PopView from "../../components/abandon/PopView.vue";
 export default {
     data() {
         return {

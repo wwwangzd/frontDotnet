@@ -20,6 +20,6 @@
         </div>
     </div>
 </template>
-<script src="../assets/js/AsideMenu.js"></script>
-<style scoped src="../assets/css/AsideMenu.css"></style>
+<script src="../../assets/js/AsideMenu.js"></script>
+<style scoped src="../../assets/css/AsideMenu.css"></style>
   

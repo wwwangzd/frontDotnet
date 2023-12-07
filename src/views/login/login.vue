@@ -23,7 +23,8 @@
                                 <a-alert v-if="isLoginError" type="error" showIcon style="margin-bottom: 24px;"
                                     :message="loginFailMessage" />
                                 <a-form-item name="loginToken">
-                                    <a-input size="large" type="text" placeholder="请输入用户名/手机号/电子邮箱" v-model:value="model.loginToken">
+                                    <a-input size="large" type="text" placeholder="请输入用户名/手机号/电子邮箱"
+                                        v-model:value="model.loginToken">
                                         <template #prefix>
                                             <user-outlined :style="{ color: 'rgba(0,0,0,.25)' }" />
                                         </template>

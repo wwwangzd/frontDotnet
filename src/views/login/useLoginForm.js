@@ -1,4 +1,7 @@
-import { ref, reactive } from "vue";
+import {
+    ref,
+    reactive
+} from "vue";
 import axios from "@/axios";
 import router from "@/routers";
 
@@ -9,13 +12,20 @@ let model = reactive({
     password: "pwd",
 });
 let rules = {
-    loginToken: [
-        { required: true, message: "必须填写用户名/密码/邮箱" },
-        { min: 2, max: 16, message: "用户名/密码/邮箱的长度必须在2-16位之间" }
+    loginToken: [{
+            required: true,
+            message: "必须填写用户名/密码/邮箱"
+        },
+        {
+            min: 2,
+            max: 16,
+            message: "用户名/密码/邮箱的长度必须在2-16位之间"
+        }
     ],
-    password: [
-        { required: true, message: '必须填写登录密码' }
-    ]
+    password: [{
+        required: true,
+        message: '必须填写登录密码'
+    }]
 };
 let formRef = ref('');
 async function onSubmit() {
@@ -40,14 +50,14 @@ async function onSubmit() {
         });
 }
 
-function useLoginForm () {
-    return { 
-        isLoginError, 
-        loginFailMessage, 
-        model, 
-        rules, 
-        formRef, 
-        onSubmit 
+function useLoginForm() {
+    return {
+        isLoginError,
+        loginFailMessage,
+        model,
+        rules,
+        formRef,
+        onSubmit
     };
 }
 export default useLoginForm;

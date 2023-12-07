@@ -40,6 +40,6 @@
         </div>
     </div>
 </template>
-<script src="../assets/js/PopView.js"></script>
-<style scoped src="../assets/css/PopView.css"></style>
+<script src="../../assets/js/PopView.js"></script>
+<style scoped src="../../assets/css/PopView.css"></style>
   

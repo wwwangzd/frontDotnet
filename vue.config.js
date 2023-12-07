@@ -1,7 +1,9 @@
 const path = require('path')
 const webpack = require('webpack')
 const buildDate = JSON.stringify(new Date().toLocaleString())
-const { defineConfig } = require('@vue/cli-service')
+const {
+    defineConfig
+} = require('@vue/cli-service')
 
 function resolve(dir) {
     return path.join(__dirname, dir)
@@ -9,18 +11,16 @@ function resolve(dir) {
 
 const isProd = process.env.NODE_ENV === 'production'
 
-const proxyRemote = "127.0.0.1:8000";  //修改端口号
+const proxyRemote = "127.0.0.1:5286"; //修改端口号
 
 const assetsCDN = {
     // webpack build externals
-    externals: {
-    },
+    externals: {},
     css: [
         "http://cdn.ricebird.cn/hljs/atom-one-dark.min.css",
     ],
     // https://unpkg.com/browse/vue@2.6.10/
-    js: [
-    ]
+    js: []
 }
 
 // 文档说明 https://webpack.js.org/configuration/dev-server/#staticoptions
@@ -35,7 +35,7 @@ const vueConfig = {
                 APP_VERSION: `"${require('./package.json').version}"`,
                 BUILD_DATE: buildDate
             }),
-            
+
         ],
         // if prod, add externals
         externals: assetsCDN.externals
@@ -72,7 +72,7 @@ const vueConfig = {
                     reactivityTransform: true
                 }
             })
-            
+
         // if prod is on
         // assets require on cdn
         config.plugin('html').tap(args => {
@@ -139,4 +139,3 @@ const vueConfig = {
 }
 
 module.exports = defineConfig(vueConfig);
-

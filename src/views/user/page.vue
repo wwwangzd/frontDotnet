@@ -32,7 +32,7 @@
                 </a-space>
             </a-row>
             <a-table class="data-table" :columns="columns" :data-source="data" :pagination="pagination">
-                <template #bodyCell="{ column }">  
+                <template #bodyCell="{ column }">
                     <!-- , text, record -->
                     <template v-if="column.key === 'operation'">
                         <a-space>
@@ -117,6 +117,7 @@ const pagination = computed(() => ({
 
         .data-table {
             margin-bottom: 10px;
+
             td {
                 border: none;
             }

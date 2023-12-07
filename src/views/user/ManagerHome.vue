@@ -3,42 +3,28 @@
     <div class="searchbox">
       <!-- 添加用户 -->
       <div class="addbtn">
-        <a-button type="primary" @click="modal1Visible = true" class="btn1"
-          >添加用户</a-button
-        >
+        <a-button type="primary" @click="modal1Visible = true" class="btn1">添加用户</a-button>
       </div>
 
       <!-- 搜索栏 -->
       <div class="search-icon">
-        <input type="text"  v-model="serachwords" placeholder="请输入ID或名称"/>
+        <input type="text" v-model="serachwords" placeholder="请输入ID或名称" />
       </div>
 
       <!-- 搜索按钮 -->
       <div class="searchbtn">
-        <a-button type="primary" @click="search()" class="btn2"
-          >搜索</a-button
-        >
+        <a-button type="primary" @click="search()" class="btn2">搜索</a-button>
       </div>
     </div>
 
     <!-- 删除用户 -->
     <div class="delcard">
       <div class="control-allselect">
-        <a-checkbox
-          class="form-check-label"
-          id="flexCheckDefault"
-          @click="allChoose()"
-          >全部选择</a-checkbox
-        >
+        <a-checkbox class="form-check-label" id="flexCheckDefault" @click="allChoose()">全部选择</a-checkbox>
       </div>
       <div class="delbtn">
-        <a-button
-          type="primary"
-          danger
-          style="height: 50px; width: 100px; float: right"
-          :disabled="!checkBoxNum"
-          >删除</a-button
-        >
+        <a-button type="primary" danger style="height: 50px; width: 100px; float: right"
+          :disabled="!checkBoxNum">删除</a-button>
       </div>
     </div>
 
@@ -56,18 +42,9 @@
 
       <!-- 用户主体 -->
       <div class="content-main">
-        <div
-          class="main border-bottom"
-          v-for="(user, index) in users"
-          :key="index"
-        >
+        <div class="main border-bottom" v-for="(user, index) in users" :key="index">
           <div class="control-select">
-            <input
-              class="form-check-input check_item"
-              type="checkbox"
-              id="gridCheck"
-              @click="partChoose()"
-            />
+            <input class="form-check-input check_item" type="checkbox" id="gridCheck" @click="partChoose()" />
           </div>
           <div class="control-name">
             <p class="main-text" style="color: #1282eb;">{{ user.name }}</p>
@@ -79,22 +56,10 @@
             <p class="main-text">{{ user.role }}</p>
           </div>
           <div class="control-btn">
-            <a-button
-              class="btn btn-dark"
-              type="primary"
-              ghost
-              ref="alteruser"
-              @click="showAlterUser(index, user)"
-            >
+            <a-button class="btn btn-dark" type="primary" ghost ref="alteruser" @click="showAlterUser(index, user)">
               修改
             </a-button>
-            <a-button
-              class="btn btn-danger"
-              type="primary"
-              danger
-              ghost
-              @click="DelUser(index)"
-            >
+            <a-button class="btn btn-danger" type="primary" danger ghost @click="DelUser(index)">
               删除
             </a-button>
           </div>
@@ -103,23 +68,13 @@
     </div>
 
     <!-- 分页 -->
-    <a-pagination v-model:current="current" :total="50" show-less-items style="float: right;margin-top: 20px;"/>
+    <a-pagination v-model:current="current" :total="50" show-less-items style="float: right;margin-top: 20px;" />
 
     <!-- 新建表单 -->
-    <a-modal
-      v-model:open="modal1Visible"
-      title="添加用户"
-      centered
-      @ok="AddUser()"
-    >
+    <a-modal v-model:open="modal1Visible" title="添加用户" centered @ok="AddUser()">
       <!-- 具体表格 -->
       <div class="changeform">
-        <a-form
-          :label-col="labelCol"
-          :wrapper-col="wrapperCol"
-          layout="horizontal"
-          style="max-width: 300px"
-        >
+        <a-form :label-col="labelCol" :wrapper-col="wrapperCol" layout="horizontal" style="max-width: 300px">
           <a-form-item label="Name" class="mragins">
             <a-input v-model:value="newuser.name" />
           </a-form-item>
@@ -153,20 +108,10 @@
     </a-modal>
 
     <!-- 修改表单 -->
-    <a-modal
-      v-model:open="modal2Visible"
-      title="修改用户信息"
-      centered
-      @ok="AlterUser()"
-    >
+    <a-modal v-model:open="modal2Visible" title="修改用户信息" centered @ok="AlterUser()">
       <!-- 具体表格 -->
       <div class="changeform">
-        <a-form
-          :label-col="labelCol"
-          :wrapper-col="wrapperCol"
-          layout="horizontal"
-          style="max-width: 300px"
-        >
+        <a-form :label-col="labelCol" :wrapper-col="wrapperCol" layout="horizontal" style="max-width: 300px">
           <a-form-item label="Name" class="mragins">
             <a-input v-model:value="changeform.name" />
           </a-form-item>

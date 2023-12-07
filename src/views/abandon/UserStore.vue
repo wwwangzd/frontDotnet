@@ -84,5 +84,5 @@
 
     </div>
 </template>
-<script src="../assets/js/UserStore.js"></script>
-<style scoped src="../assets/css/UserStore.css"></style>
+<script src="../../assets/js/UserStore.js"></script>
+<style scoped src="../../assets/css/UserStore.css"></style>
