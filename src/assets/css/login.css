@@ -265,3 +265,13 @@ body {
     font-weight: 600;
     /* margin-left: 5px; */
 }
+
+.spis{
+    color: #666;
+}
+
+.spis:hover{
+    color: rgba(53, 96, 236, 0.678);
+    cursor: pointer;
+}
+

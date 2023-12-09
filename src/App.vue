@@ -12,6 +12,7 @@
 
 <script setup>
 import { ConfigProvider } from "ant-design-vue";
+// import { ArrowLeftOutlined } from '@ant-design/icons';
 import zhCN from "ant-design-vue/es/locale/zh_CN";
 
 ConfigProvider.config({

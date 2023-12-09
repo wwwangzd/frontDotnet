@@ -8,7 +8,7 @@
 
       <!-- 搜索栏 -->
       <div class="search-icon">
-        <input type="text" v-model="serachwords" placeholder="请输入ID或名称" />
+        <input type="text" v-model="serachwords" placeholder="请输入学号或姓名" />
       </div>
 
       <!-- 搜索按钮 -->
@@ -68,7 +68,7 @@
     </div>
 
     <!-- 分页 -->
-    <a-pagination v-model:current="current" :total="50" show-less-items style="float: right;margin-top: 20px;" />
+    <a-pagination v-model:current="current" :total="50" show-less-items style="float: right;margin-top: 20px;" @change="getUsers()"/>
 
     <!-- 新建表单 -->
     <a-modal v-model:open="modal1Visible" title="添加用户" centered @ok="AddUser()">

@@ -26,7 +26,8 @@ async function onSubmit() {
     formRef.value
         .validate()
         .then(async () => {
-            let msg = await axios.post("/api/login", model);
+            let user={username: model.loginToken, password: model.password};
+            let msg = await axios.post("/api/login", user);
             console.log(msg.success);
             if (msg.success == "failed") {
                 message.error(msg.msg);
@@ -43,7 +44,6 @@ async function onSubmit() {
 }
 
 function turnAround(index) {
-    console.log("come in.\n");
     let frontindex = document.querySelector(".frontIndex");
     let loginform = document.querySelector(".loginform");
 
