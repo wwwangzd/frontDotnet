@@ -72,43 +72,38 @@ export default {
   mounted() {
     // this.judgeInput();
     // this.allChoose();
-    this.getUsers();
+    // this.getUsers();
   },
 
   methods: {
-    search() {   //暂不支持模糊搜索
+    search() {
+      //暂不支持模糊搜索
       //判断输入的东西了
       console.log("inputwords: " + this.serachwords);
       let len = this.users.length;
-      if(this.serachwords == "")
-      {
-        this.getUsers();   //回到当前页面，不一定是第一页
+      if (this.serachwords == "") {
+        this.getUsers(); //回到当前页面，不一定是第一页
       }
-      if(this.serachwords[0] == '2')   //简单判断一下吧，开头是2就是学号搜索,而且只是当前页面的搜索
-      {
-        for(let i = 0; i < len; i++)
-        {
-          if(this.users[i].sid == this.serachwords)
-          {
+      if (this.serachwords[0] == "2") {
+        //简单判断一下吧，开头是2就是学号搜索,而且只是当前页面的搜索
+        for (let i = 0; i < len; i++) {
+          if (this.users[i].sid == this.serachwords) {
             let nowuser = this.users[i];
             this.users.splice(0, len);
             this.users.push(nowuser);
             break;
           }
         }
-      }
-      else{   //否则就是姓名搜索
-        for(let i = 0; i < len; i++)
-        {
-          if(this.users[i].name == this.serachwords)
-          {
+      } else {
+        //否则就是姓名搜索
+        for (let i = 0; i < len; i++) {
+          if (this.users[i].name == this.serachwords) {
             let nowuser = this.users[i];
             this.users.splice(0, len);
             this.users.push(nowuser);
             break;
           }
         }
-
       }
     },
 
@@ -144,30 +139,26 @@ export default {
     async getUsers() {
       console.log(this.current);
       let searcher = {
+        Page: this.current,
+        Size: this.pageSize,
         // UserName:"huangxu",
         // Password:"123456@hx",
       };
-      let msg = await axios.get("/api/user/GetUsers", {
-        params:{
-          Page: this.current,
-          Size: this.pageSize,
-        },});
+      let msg = await axios.get("/api/user/GetUsers", searcher);
       console.log(msg);
       if (!msg.success) {
         message.error(msg.msg);
       } else {
         let len = msg.data.length;
-        this,users.splice(0,len);
-        for(let i = 0; i < len; i++)
-        {
+        this, users.splice(0, len);
+        for (let i = 0; i < len; i++) {
           this.users[i].id = msg.data[i].id;
           this.users[i].name = msg.data[i].userName;
           this.users[i].pwd = msg.data[i].password;
-          this.users[i].sid = "2292021220000" + i.toString();   //因为没有传回所以先写死
+          this.users[i].sid = "2292021220000" + i.toString(); //因为没有传回所以先写死
           this.users[i].role = "manager";
         }
-        
-    }
+      }
     },
 
     //新增用户
@@ -207,7 +198,37 @@ export default {
     //删除用户
     DelUser(index) {
       console.log("delete " + index);
-      let uname = this.users[index].name;
+      let deluser = {
+        name: this.users[index].name,
+      };
+      var that = this;
+      this.$confirm({
+        title: "确认删除 " + this.users[index].name + " 吗？",
+        okText: "是",
+        cancelText: "否",
+        closable: true, //是否显示右上角的x
+        onOk: async function () {
+          console.log("on确定");
+          //调用删除用户的接口
+          that.users.splice(index, 1);
+          message.success("删除成功");
+        //   let msg = await axios.delete("/api/user/RemoveUser", deluser);
+        //   console.log(msg);
+        //   if (!msg.success) {
+        //     message.error(msg.msg);
+        //   } else {
+        //     message.success(msg.msg);
+        //     console.log("删除成功");
+        //   }
+        },
+        onCancel() {
+          console.log("on取消");
+        },
+      });
+    },
+
+    //全部删除
+    allDelete() {
       this.$confirm({
         title: "确认删除吗？",
         okText: "是",
@@ -215,15 +236,27 @@ export default {
         closable: true, //是否显示右上角的x
         onOk: async function () {
           console.log("on确定");
+          let dnum = 0;
+          let len = this.users.length;
           //调用删除用户的接口
-          let msg = await axios.delete("/api/user/RemoveUser");
-          console.log(msg);
-          if (!msg.success) {
-            message.error(msg.msg);
-        } else {
-          message.success(msg.msg);
-          console.log("删除成功");
-        }
+          for (let i = len - 1; i >= 0; i--) {
+            let msg = await axios.delete("/api/user/RemoveUser", this.users[i].name);
+            console.log(msg);
+            if (!msg.success) {
+              let errmsg = msg.msg;
+            } else {
+              dnum++;
+            }
+          }
+
+          //全部删除之后才提示成功
+          if(dnum == len)
+          {
+              message.success(msg.msg);
+              console.log("删除成功");
+          }else{
+            message.error(errmsg);
+          }
         },
         onCancel() {
           console.log("on取消");

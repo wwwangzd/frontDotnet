@@ -24,7 +24,7 @@
       </div>
       <div class="delbtn">
         <a-button type="primary" danger style="height: 50px; width: 100px; float: right"
-          :disabled="!checkBoxNum">删除</a-button>
+          :disabled="!checkBoxNum" @click="allDelete()">删除</a-button>
       </div>
     </div>
 

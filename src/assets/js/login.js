@@ -32,10 +32,13 @@ async function onSubmit() {
             if (msg.success == "failed") {
                 message.error(msg.msg);
             } else {
+                message.success(msg.msg);
                 localStorage.setItem("accessToken", msg.token);
-                router.push({
-                    name: 'user'
-                })
+                setTimeout(() => {  //延时好截图
+                    router.push({
+                        name: 'user'
+                    })
+                }, 1000);
             }
         })
         .catch((err) => {
